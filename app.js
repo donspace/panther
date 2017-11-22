@@ -19,7 +19,6 @@ dependancyManager.injectDependancies(coreDependancies);
 
 //configurations
 const configReader=require("./app/utils/common/config-reader");
-var userManager=require('./app/middlewares/user-manager');
 
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
