@@ -26,3 +26,10 @@ Why dependency injection is necessary?
 
 Getting Started
 ----------------
+
+First you have to download the framework , build all the NPM modules and come up with a running project. Initially framework is devided in to 3 major layers. (you can add any amount of layers or remove existing ones)
+1. Core layer
+2. Common layer
+3. DB access layer
+
+Each of above layers have its own dependancy config **Json** file in **config/dependancies**
