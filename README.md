@@ -103,6 +103,12 @@ module.exports=function(utils,userInfoService){
     }
 };
 ```
+**Note:- ** 
+Node modules are fine to access from require statements since paths are not specified. However based on your architecture, node modules can also be accessed using panther dependancies.
+```javascript
+var passport = require('passport');
+```
+
 How to write an XpressJS Route as a ```Panther Module ```
 ---------------------------------------------------------
 Route module should be same as the normal panther module and the **route object should be returned**
