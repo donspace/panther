@@ -19,14 +19,9 @@ dependancyManager.injectDependancies(coreDependancies);
 
 //configurations
 const configReader=require("./app/utils/common/config-reader");
-var userManager=require('./app/middlewares/user-manager');
 
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
-
-
-// const user=require("./app/components/core-components/user-manager/controllers/user");
-// const shop=require("./app/components/core-components/dashboard-manager/controllers/dashboard-manager");
 
 
 
@@ -48,16 +43,6 @@ app.use(passport.session());
 app.use('/',dependancyManager.routeRegister(coreDependancies));
 
 
-//app.use(userManager.verifyRequest);
-
-/**
- * Routing Micro Services Bundles
- */
-//app.use('/user',user);
-//app.use('/shop',shop);
-
-// var signIn=require('./app/components/core-components/user-manager/controllers/signin');
-// app.use('/signin',signIn)
 
 /**
  * Server Bootstrap
