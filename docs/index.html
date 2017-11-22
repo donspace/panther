@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>PantherJS</title>
+<meta property="og:title" content="panther">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="A JavaScript framework with enhanced dependency injection and user management with mongo db">
+<meta property="og:description" content="A JavaScript framework with enhanced dependency injection and user management with mongo db">
+<link rel="canonical" href="https://donspace.github.io/panther/">
+<meta property="og:url" content="https://donspace.github.io/panther/">
+<meta property="og:site_name" content="panther">
+<script type="application/ld+json">
+{"name":"panther","description":"A Node JavaScript framework with enhanced dependency injection and user management with mongo db","author":null,"@type":"WebSite","url":"https://donspace.github.io/panther/","image":null,"publisher":null,"headline":"panther","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link rel="stylesheet" href="index_files/style.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        
+        <center><p>A NodeJS framework with enhanced dependency injection and namespace management on top of Xpress.js</p></center>
+
+        <p align="center">
+          <img src="index_files/logo.jpg">
+        </p>
+        <center> <h3> Powerful - Maintainable - Layered </h3> </center>
+         <center><p class="view"><a href="https://github.com/donspace/panther">View the Project on GitHub <small></small></a></p></center> 
+        
+
+        
+
+        
+      </header>
+      <section>
+
+<h1 id="documentation">Documentation</h1>
+<p>Panther-JS is a NodeJS framework with Integrated advanced dependency 
+injection mechanism in to it , in order to write more manageable code 
+and make unit testing easy.</p>
+
+<h2 id="why-dependency-injection-is-necessary">Why dependency injection is necessary?</h2>
+<blockquote>
+  <ul>
+    <li>Writing <strong>Require</strong> statements all over the code can end up in unmanageable code when it comes to large scale projects.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Its hard to get an idea about the code since all the dependency 
+injections are scattered through out each and every file. Hence 
+readability of the code decreases.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>To do unit testing properly , you have to isolate parts of the 
+code removing dependencies.  This can be also hectic if its not properly
+ maintained</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>If you want to have multiple layers of the code,  you will have a
+ hard time since, require can access anywhere without any problem.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>Most of the paths in require statements can be really ugly such 
+as (…/…./ ../config.js ) when u have to navigate through parent 
+directories.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>If in any case the programmer needed to change the folder 
+structure of the code, again will have to touch and change each and 
+every file to maintain the dependencies.</li>
+  </ul>
+</blockquote>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>First you have to download the framework , build all the NPM modules 
+and come up with a running project. Initially framework is devided in to
+ 3 major layers. (you can add any amount of layers or remove existing 
+ones)</p>
+<ol>
+  <li>Core layer</li>
+  <li>Common layer</li>
+  <li>DB access layer</li>
+</ol>
+
+<p>Each of above layers have its own dependancy config <strong>Json</strong> file in <strong>config/dependancies</strong></p>
+
+<p>In <strong>app.js</strong> each of above mentioned dependancy configs
+ are required and injected as this. If you add ur own config file, you 
+have to add it here in the same way. If you are removing a config file, 
+you have to unplug it from here too.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">dependancyManager</span><span class="o">=</span><span class="nx">require</span><span class="p">(</span><span class="s1">'./app/middlewares/dependancy-manager'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">commonDependancies</span><span class="o">=</span><span class="nx">require</span><span class="p">(</span><span class="s1">'./config/dependancies/common-dependancies'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">dbAccessDependancies</span><span class="o">=</span><span class="nx">require</span><span class="p">(</span><span class="s1">'./config/dependancies/db-access-dependancies'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">coreDependancies</span><span class="o">=</span><span class="nx">require</span><span class="p">(</span><span class="s1">'./config/dependancies/core-dependancies'</span><span class="p">);</span>
+
+<span class="nx">dependancyManager</span><span class="p">.</span><span class="nx">injectDependancies</span><span class="p">(</span><span class="nx">commonDependancies</span><span class="p">);</span>
+<span class="nx">dependancyManager</span><span class="p">.</span><span class="nx">injectDependancies</span><span class="p">(</span><span class="nx">dbAccessDependancies</span><span class="p">);</span>
+<span class="nx">dependancyManager</span><span class="p">.</span><span class="nx">injectDependancies</span><span class="p">(</span><span class="nx">coreDependancies</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="how-to-define-a-dependancy">How to define a dependancy</h2>
+<p>Each dependacy config object can have up to 5 fields.</p>
+
+<ol>
+  <li><strong>name</strong> :This specifies the name of the dependancy. The string you use here will be taken as the reference to the dependancy.</li>
+  <li><strong>absolutePath</strong>:This is the absolute path of the dependacy file, considering app.js is the root.</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span><span class="s2">"userAuthentication"</span><span class="p">,</span>
+        <span class="s2">"absolutePath"</span><span class="p">:</span><span class="s2">"./app/core/user-manager/models/user-authentication"</span><span class="p">,</span>
+    <span class="p">},</span>
+</code></pre></div></div>
+<ol>
+  <li><strong>dependancies</strong> : This is an array of dependancy 
+names which should be injected to that module. That dependancy has to be
+ injected prior to the module which it will be injected to.</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span><span class="s2">"userSchema"</span><span class="p">,</span>
+        <span class="s2">"absolutePath"</span><span class="p">:</span><span class="s2">"./app/db-access/schemas/user-schema"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span><span class="s2">"userManagerInterface"</span><span class="p">,</span>
+        <span class="s2">"absolutePath"</span><span class="p">:</span><span class="s2">"./app/db-access/interfaces/user-manager-interface"</span><span class="p">,</span>
+        <span class="s2">"dependancies"</span><span class="p">:[</span><span class="s2">"userSchema"</span><span class="p">]</span>
+    <span class="p">},</span>
+</code></pre></div></div>
+
+<h2 id="how-to-write-a-panther-module">How to Write a Panther Module</h2>
+<p>When writing panther module, you should take care of below points,</p>
+
+<blockquote>
+  <ul>
+    <li><strong>Module.exports</strong> should be a function which has a <strong>similar number of parameters</strong> as mentioned in the dependancy config. Otherwise you will recieve an error message saying, the argument number is not matching.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li>The dependencies will be injected in the <strong>same order</strong> as mentioned in the config file.</li>
+  </ul>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">utils</span><span class="p">,</span><span class="nx">userInfoService</span><span class="p">){</span>
+    
+    <span class="c1">// you can access injected modules</span>
+    <span class="kd">var</span> <span class="nx">userInfoObj</span> <span class="o">=</span> <span class="nx">userInfoService</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">configReader</span><span class="o">=</span><span class="nx">utils</span><span class="p">.</span><span class="nx">configReader</span><span class="p">;</span>
+    
+    <span class="c1">// your code goes here</span>
+    <span class="kd">var</span> <span class="nx">add</span><span class="o">=</span><span class="nx">funtion</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+
+    <span class="k">return</span><span class="p">{</span>
+        <span class="c1">//these return objects will be injected to other modules which are dependant on this one</span>
+        <span class="nx">x</span> <span class="p">,</span>
+        <span class="nx">add</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<p>**Note:- ** 
+Node modules are fine to access from require statements since paths are 
+not specified. However based on your architecture, node modules can also
+ be accessed using panther dependancies.</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">passport</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'passport'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="how-to-write-an-xpressjs-route-as-a-panther-module">How to write an XpressJS Route as a Panther Module</h2>
+<p>Route module should be same as the normal panther module and the <strong>route object should be returned</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">userBusiness</span><span class="p">,</span><span class="nx">utils</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">passport</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'passport'</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">();</span>
+    
+    <span class="c1">//POST : /user</span>
+    <span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/user'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//your code</span>
+    <span class="p">});</span>
+
+    <span class="c1">//POST:/users/login</span>
+    <span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/users/login'</span><span class="p">,</span> <span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">'local'</span><span class="p">,{</span><span class="na">session</span><span class="p">:</span> <span class="kc">false</span><span class="p">}),</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+         <span class="c1">//your code</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="nx">router</span><span class="p">;</span>  
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Extra field <strong>route</strong> should be added to the dependancy config object of the route as the base route. 
+It will be automatically injected as an xpress route of the app.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span>
+        <span class="s2">"absolutePath"</span><span class="p">:</span><span class="s2">"./app/core/user-manager/controllers/user"</span><span class="p">,</span>
+        <span class="s2">"route"</span><span class="p">:</span><span class="s2">"/core/user-manager/user"</span><span class="p">,</span>
+        <span class="s2">"dependancies"</span><span class="p">:[</span><span class="s2">"userBusiness"</span><span class="p">,</span><span class="s2">"utils"</span><span class="p">]</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="panther-namespaces">Panther Namespaces</h2>
+<p>Panther provides Namespaces as a special feature. A panther namespace
+ can hold multiple dependancies in a single module.
+Using these namespaces the code can be layered. For an example, all the 
+modules in db access layer can be layered as , “dbAccessNamespace”. Then
+ it can be injected to the business layer modules as a module bundle 
+from db access layer.</p>
+
+<p>Panther Namespaces should follow below conventions</p>
+<blockquote>
+  <ul>
+    <li>It should not have the absolute path field</li>
+    <li>You just have to define it in the config object</li>
+    <li>A field <strong>namespace</strong> should be equal to <strong>true</strong></li>
+  </ul>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span><span class="s2">"configReader"</span><span class="p">,</span>
+        <span class="s2">"absolutePath"</span><span class="p">:</span><span class="s2">"./app/utils/common/config-reader"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span><span class="s2">"errorResponseHandler"</span> <span class="p">,</span>
+        <span class="s2">"absolutePath"</span><span class="p">:</span><span class="s2">"./app/utils/common/error-response-handler.js"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span><span class="s2">"utils"</span><span class="p">,</span>
+        <span class="s2">"namespace"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"dependancies"</span><span class="p">:[</span><span class="s2">"configReader"</span><span class="p">,</span><span class="s2">"errorResponseHandler"</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<blockquote>
+  <ul>
+    <li>Release :- 1.0.0</li>
+    <li>Author :- Don Rajitha Dissanayake</li>
+  </ul>
+</blockquote>
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="https://github.com/donspace">donspace</a></p>
+        
+        <center><p><small>Author : <br/> <a href="https://github.com/orderedlist">Don Rajitha Dissanayake</a></small></p></center>
+      </footer>
+    </div>
+    <script src="index_files/scale.js"></script>
+
+
+  
+  
+
+</body></html>
