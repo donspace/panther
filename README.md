@@ -61,8 +61,8 @@ Each dependacy config object can have up to 5 fields.
         "absolutePath":"./app/core/user-manager/models/user-authentication",
     },
 ```
-
 3. **dependancies** : This is an array of dependancy names which should be injected to that module. That dependancy has to be injected prior to the module which it will be injected to.
+
 
 ```javascript
     {
