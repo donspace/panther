@@ -75,5 +75,5 @@ Each dependacy config object can have up to 5 fields.
         "dependancies":["userSchema"]
     },
 ```
-How to write a **panther module**
+How to write a ~ Panther Module~
 --------------------------
