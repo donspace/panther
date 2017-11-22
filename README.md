@@ -11,9 +11,14 @@ Panther-JS is a NodeJS framework with Integrated advanced dependency injection m
 
 Why dependency injection is necessary? 
 -------------------------------------------
+> - Writing **Require** statements all over the code can end up in unmanageable code when it comes to large scale projects. 
 
-> **Note:**
+> - Its hard to get an idea about the code since all the dependency injections are scattered through out each and every file. Hence readability of the code decreases. 
 
-> - StackEdit is accessible offline after the application has been loaded for the first time.
-> - Your local documents are not shared between different browsers or computers.
-> - Clearing your browser's data may **delete all your local documents!** Make sure your documents are synchronized with **Google Drive** or **Dropbox** (check out the [<i class="icon-refresh"></i> Synchronization](#synchronization) section).
+> - To do unit testing properly , you have to isolate parts of the code removing dependencies.  This can be also hectic if its not properly maintained
+
+>- If you want to have multiple layers of the code,  you will have a hard time since, require can access anywhere without any problem.
+
+>- Most of the paths in require statements can be really ugly such as (.../..../ ../config.js ) when u have to navigate through parent directories.  
+
+>- If in any case the programmer needed to change the folder structure of the code, again will have to touch and change each and every file to maintain the dependencies.
