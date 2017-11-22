@@ -48,3 +48,18 @@ dependancyManager.injectDependancies(dbAccessDependancies);
 dependancyManager.injectDependancies(coreDependancies);
 ```
 
+How to define a dependancy
+--------------------------
+Each dependacy config object can have up to 5 fields.
+
+1. **name** :This specifies the name of the dependancy. The string you use here will be taken as the reference to the dependancy.
+2. **absolutePath**:This is the absolute path of the dependacy file, considering app.js is the root.
+```javascript
+    {
+        "name":"userAuthentication",
+        "absolutePath":"./app/core/user-manager/models/user-authentication",
+    },
+
+```
+
+3. **dependancies** : This is a array of dependancy names which should be injected to that module.
