@@ -145,6 +145,13 @@ It will be automatically injected as an xpress route of the app.
 ---------------------------------------------------------
 Panther provides Namespaces as a special feature. A panther namespace can hold multiple dependancies in a single module.
 Using these namespaces the code can be layered. For an example, all the modules in db access layer can be layered as , "dbAccessNamespace". Then it can be injected to the business layer modules as a module bundle from db access layer.
+
+Panther Namespaces should follow below conventions 
+>- It should not have the absolute path field
+>- You just have to define it in the config object
+>- A field **Namespace** should be equal to **true**
+
+
 ```javascript
 [
     {
@@ -162,3 +169,5 @@ Using these namespaces the code can be layered. For an example, all the modules 
     }
 ]
 ```
+
+
