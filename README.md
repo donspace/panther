@@ -78,3 +78,24 @@ Each dependacy config object can have up to 5 fields.
 How to write a ```Panther Module ```
 -------------------------------------------
 
+```javascript
+module.exports=function(utils,userInfoService){
+    
+    // you can access injected modules
+    var userInfoObj = userInfoService;
+    var configReader=utils.configReader;
+    
+    // your code goes here
+    var add=funtion(a,b){
+        return a+b;
+    }
+    
+    var x =10;
+
+    return{
+        //these return objects will be injected to other modules which are dependant on this one
+        x ,
+        add
+    }
+};
+```
