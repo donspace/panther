@@ -75,7 +75,7 @@ Each dependacy config object can have up to 5 fields.
         "dependancies":["userSchema"]
     },
 ```
-How to write a ```Panther Module ```
+How to write a Panther Module
 -------------------------------------------
 When writing panther module, you should take care of below points,
 >- **Module.exports** should be a function which has a **similar number of parameters** as mentioned in the dependancy config. Otherwise you will recieve an error message saying, the argument number is not matching.
@@ -109,7 +109,7 @@ Node modules are fine to access from require statements since paths are not spec
 var passport = require('passport');
 ```
 
-How to write an XpressJS Route as a ```Panther Module ```
+How to write an XpressJS Route as a Panther Module 
 ---------------------------------------------------------
 Route module should be same as the normal panther module and the **route object should be returned**
 
@@ -147,7 +147,7 @@ It will be automatically injected as an xpress route of the app.
     }
 ```
 
-```Panther Namespaces ```
+Panther Namespaces 
 ---------------------------------------------------------
 Panther provides Namespaces as a special feature. A panther namespace can hold multiple dependancies in a single module.
 Using these namespaces the code can be layered. For an example, all the modules in db access layer can be layered as , "dbAccessNamespace". Then it can be injected to the business layer modules as a module bundle from db access layer.
