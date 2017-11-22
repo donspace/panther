@@ -178,7 +178,6 @@ Panther Namespaces should follow below conventions
 
 Conclusion 
 --------------------
-Panther Namespaces should follow below conventions 
->- It should not have the absolute path field
->- You just have to define it in the config object
->- A field **namespace** should be equal to **true**
+
+>- Release :- 1.0.0
+>- Author :- Don Rajitha Dissanayake
