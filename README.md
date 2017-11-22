@@ -75,5 +75,9 @@ Each dependacy config object can have up to 5 fields.
         "dependancies":["userSchema"]
     },
 ```
-How to write a ~ Panther Module~
+How to write a <p style="color:blue"> ~ Panther Module~ </p>
 --------------------------
+ Roses are \textcolor{red}{red}, violets are \textcolor{blue}{blue}.
+ 
+ <p style="color:blue"> ~ Panther Module~ </p>
+ <span style=“color:green;”> text goes here</span>
