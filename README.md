@@ -149,7 +149,7 @@ Using these namespaces the code can be layered. For an example, all the modules 
 Panther Namespaces should follow below conventions 
 >- It should not have the absolute path field
 >- You just have to define it in the config object
->- A field **Namespace** should be equal to **true**
+>- A field **namespace** should be equal to **true**
 
 
 ```javascript
