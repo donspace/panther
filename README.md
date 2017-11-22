@@ -75,8 +75,9 @@ Each dependacy config object can have up to 5 fields.
         "dependancies":["userSchema"]
     },
 ```
+
 How to write a Panther Module
--------------------------------------------
+-----------------------------
 When writing panther module, you should take care of below points,
 >- **Module.exports** should be a function which has a **similar number of parameters** as mentioned in the dependancy config. Otherwise you will recieve an error message saying, the argument number is not matching.
 
