@@ -22,3 +22,7 @@ Why dependency injection is necessary?
 >- Most of the paths in require statements can be really ugly such as (.../..../ ../config.js ) when u have to navigate through parent directories.  
 
 >- If in any case the programmer needed to change the folder structure of the code, again will have to touch and change each and every file to maintain the dependencies.
+
+
+Getting Started
+----------------
