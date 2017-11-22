@@ -103,3 +103,62 @@ module.exports=function(utils,userInfoService){
     }
 };
 ```
+How to write an XpressJS Route as a ```Panther Module ```
+---------------------------------------------------------
+Route module should be same as the normal panther module and the **route object should be returned**
+
+```javascript
+module.exports=function(userBusiness,utils){
+    var express = require('express');
+    var passport = require('passport');
+
+    var router = express.Router();
+    
+    //POST : /user
+    router.post('/user', function (req, res) {
+      //your code
+    });
+
+    //POST:/users/login
+    router.post('/users/login', passport.authenticate('local',{session: false}),function(req, res) {
+         //your code
+    });
+
+    return router;  
+
+}
+```
+
+Extra field **route** should be added to the dependancy config object of the route as the base route. 
+It will be automatically injected as an xpress route of the app.
+
+```javascript
+    {
+        "name":"user",
+        "absolutePath":"./app/core/user-manager/controllers/user",
+        "route":"/core/user-manager/user",
+        "dependancies":["userBusiness","utils"]
+    }
+```
+
+```Panther Namespaces ```
+---------------------------------------------------------
+Panther provides Namespaces as a special feature. A panther namespace can hold multiple dependancies in a single module.
+Using these namespaces the code can be layered. For an example, all the modules in db access layer can be layered as , "dbAccessNamespace". Then it can be injected to the business layer modules as a module bundle from db access layer.
+```javascript
+[
+    {
+        "name":"configReader",
+        "absolutePath":"./app/utils/common/config-reader"
+    },
+    {
+        "name":"errorResponseHandler" ,
+        "absolutePath":"./app/utils/common/error-response-handler.js"
+    },
+    {
+        "name":"utils",
+        "namespace":true,
+        "dependancies":["configReader","errorResponseHandler"]
+    }
+]
+```
