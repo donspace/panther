@@ -44,7 +44,7 @@ var routeRegister=function (con){
     var tempModule;
     filteredCon.forEach(function(dep){
         tempModule =container.getModule(dep.name);
-        router.use('/',tempModule);        
+        router.use(dep.route,tempModule);        
     },this)
     
     return router;
