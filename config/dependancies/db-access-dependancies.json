@@ -1,0 +1,25 @@
+[
+    {
+        "name":"dbAccess",
+        "absolutePath":"./app/db-access/common/db-access",
+        "dependancies":["utils"]
+    },
+    {
+        "name":"userSchema",
+        "absolutePath":"./app/db-access/schemas/user-schema",
+        "dependancies":["dbAccess"]
+    },
+    {
+        "name":"userManagerInterface",
+        "absolutePath":"./app/db-access/interfaces/user-manager-interface",
+        "dependancies":["userSchema"]
+    },
+    {
+        "name":"DBALayer",
+        "namespace":true,
+        "dependancies":[
+            "userManagerInterface"
+        ]
+    }
+
+]

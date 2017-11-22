@@ -1,0 +1,23 @@
+{
+    "11000":{
+        "code":"ERROR0001",
+        "message":" User already exist",
+        "status":400
+    },
+    "SQ0001":{
+        "code":"ERROR0002",
+        "message":"Incorrect password",
+        "status":401
+    },
+    "JWT001":{
+        "code":"ERROR0003",
+        "message":"Authentication Failed",
+        "status":401
+    },
+    "JWT002":{
+        "code":"ERROR0004",
+        "message":"Invalid URL",
+        "status":404
+    }
+
+}

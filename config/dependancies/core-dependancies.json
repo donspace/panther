@@ -1,0 +1,20 @@
+[
+    {
+        "name":"userBusiness",
+        "absolutePath":"./app/core/user-manager/models/user-business",
+        "dependancies":["DBALayer"]
+        
+    },
+    {
+        "name":"userAuthentication",
+        "absolutePath":"./app/core/user-manager/models/user-authentication",
+        "dependancies":["DBALayer"]
+    },
+    {
+        "name":"user",
+        "absolutePath":"./app/core/user-manager/controllers/user",
+        "route":true,
+        "dependancies":["userBusiness","userAuthentication","utils"]
+    }
+
+]

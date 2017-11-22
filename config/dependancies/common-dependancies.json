@@ -1,0 +1,15 @@
+[
+    {
+        "name":"configReader",
+        "absolutePath":"./app/utils/common/config-reader"
+    },
+    {
+        "name":"errorResponseHandler",
+        "absolutePath":"./app/utils/common/error-response-handler.js"
+    },
+    {
+        "name":"utils",
+        "namespace":true,
+        "dependancies":["configReader","errorResponseHandler"]
+    }
+]

@@ -1,0 +1,21 @@
+{
+    "serverConfig":{
+        "host":"127.0.0.1",
+        "portNumber":3000
+    },
+    "mongoServerConfig":{
+        "host":"mongodb://localhost",
+        "portNumber":27017,
+        "dbName":"square"
+    },
+    "userManagementConfig":{
+        "superSecret":"aasfHGkw2134khjlUIHoHooi43iewburvgwouyherbfw3qiouefbknjwfgijwerng",
+        "signExpirationTimeMinutes":1440,
+        "isTokenValidationRequired":{
+            "/user":false,
+            "/user/token":false,
+            "/shop":true
+        }
+    }
+
+}

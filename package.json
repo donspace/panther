@@ -1,0 +1,26 @@
+{
+  "name": "square",
+  "version": "1.0.0",
+  "description": "This is the project of business social media",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Don Rajitha Dissanayake",
+  "license": "ISC",
+  "dependencies": {
+    "addict-ioc": "^2.3.4",
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "guarddog": "^1.0.0",
+    "helmet": "^3.8.1",
+    "jsonwebtoken": "^8.0.1",
+    "kontainer-di": "^0.9.9",
+    "lazy.js": "^0.5.0",
+    "mongoose": "^4.11.9",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "randomatic": "^1.1.7",
+    "travix-di": "^1.0.2"
+  }
+}
