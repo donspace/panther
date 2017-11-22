@@ -33,3 +33,18 @@ First you have to download the framework , build all the NPM modules and come up
 3. DB access layer
 
 Each of above layers have its own dependancy config **Json** file in **config/dependancies**
+
+In **app.js** each of above mentioned dependancy configs are required and injected as this. If you add ur own config file, you have to add it here in the same way. If you are removing a config file, you have to unplug it from here too.
+
+```javascript
+var dependancyManager=require('./app/middlewares/dependancy-manager');
+
+var commonDependancies=require('./config/dependancies/common-dependancies');
+var dbAccessDependancies=require('./config/dependancies/db-access-dependancies')
+var coreDependancies=require('./config/dependancies/core-dependancies');
+
+dependancyManager.injectDependancies(commonDependancies);
+dependancyManager.injectDependancies(dbAccessDependancies);
+dependancyManager.injectDependancies(coreDependancies);
+```
+
