@@ -54,12 +54,14 @@ Each dependacy config object can have up to 5 fields.
 
 1. **name** :This specifies the name of the dependancy. The string you use here will be taken as the reference to the dependancy.
 2. **absolutePath**:This is the absolute path of the dependacy file, considering app.js is the root.
+
 ```javascript
     {
         "name":"userAuthentication",
         "absolutePath":"./app/core/user-manager/models/user-authentication",
     },
 ```
+
 3. **dependancies** : This is an array of dependancy names which should be injected to that module. That dependancy has to be injected prior to the module which it will be injected to.
 
 
